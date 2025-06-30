@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="main-container">
+    <div class="loading hidden">Loading...</div>
+
+    <header class="input-container">
+      <input class="city-input" placeholder="Search City" type="text" />
+      <button class="search-btn"><img src="down (2).png" alt="search" /></button>
+     <div class="right-buttons">
+  <button class="more-btn" title="More Options">⋯</button>
+  <div class="more-menu hidden">
+    <button class="mic-btn" title="Voice Search">🎙️</button>
+    <button class="location-btn" title="Use My Location">📍</button>
+    <button class="dark-toggle" title="Toggle Dark Mode">🌙</button>
+  </div>
+  </div>
+    </header>
+
+    <section class="weather-info" style="display: none;">
+      <div class="location-date-container">
+        <div class="location">
+          <img src="map.png" alt="map" />
+          <h4 class="country-txt">City</h4>
+        </div>
+        <h5 class="current-date-txt regular-txt">Today</h5>
+      </div>
+
+      <div class="weather-summery-container">
+        <img src="https://openweathermap.org/img/wn/02d@2x.png" class="weather-summary-img" />
+        <div class="weather-summery-info">
+          <div class="unit-toggle">
+  <button class="unit-btn active" data-unit="metric">°C</button>
+  <button class="unit-btn" data-unit="imperial">°F</button>
+</div>
+          <h1 class="temp-txt">-- °C</h1>
+          <h3 class="condition-txt regular-txt">--</h3>
+        </div>
+      </div>
+
+      <div class="weather-condition-container">
+        <div class="condition-item">
+          <img src="drop.png" alt="humidity" />
+          <div class="condition-info">
+            <h5 class="regular-txt">Humidity</h5>
+            <h5 class="humidity-value-txt">--%</h5>
+          </div>
+        </div>
+        <div class="condition-item">
+          <img src="Air.png" alt="wind" />
+          <div class="condition-info">
+            <h5 class="regular-txt">Wind Speed</h5>
+            <h5 class="wind-value-txt">-- M/s</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="forecast-item-container"></div>
+    </section> 
+    
+
+    <section class="search-city section-message">
+      <img src="search-city.png" alt="search" />
+      <div>
+        <h1>Search City</h1>
+        <h4 class="regular-txt">Find out the weather condition of the city</h4>
+      </div>
+    </section>
+
+    <section class="not-found section-message" style="display: none;">
+      <img src="error.png" alt="error" />
+      <div>
+        <h1>City Not Found</h1>
+        <h4 class="regular-txt">Please try another city</h4>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+
