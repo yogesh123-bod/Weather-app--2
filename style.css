@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    font-weight: 600;
+}
+
+body {
+    background: url('bg.jpg');
+    width: 100%;
+    height: 100dvh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100dvh;
+    background: rgb(0,0,0,0.15);
+    backdrop-filter: blur(15px);
+}
+
+.main-container {
+    width: 300px;
+    height: 496px;
+    z-index: 1;
+    background: linear-gradient(to top, rgb(0,0,0,0.15), rgb(255,255,255,0.15));
+    border-radius: 12px;
+    backdrop-filter: blur(100px);
+    padding: 20px;
+}
+
+.city-input {
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 99px;
+    border: 3px solid transparent;
+    background: rgb(0,0,0,0.15);
+    outline: none;
+    font-weight: 500;
+    transition: 0.25s border;
+    padding-right: 45px;
+}
+
+.city-input:focus {
+    border: 3px solid rgb(0,0,0,0.15);
+}
+
+.city-input::placeholder {
+    color: rgb(255,255,255,0.75);
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.right-buttons {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.right-buttons button {
+    background: none;
+    border: none;
+    font-size: 19px;
+    position: inherit;
+    cursor: pointer;
+    color: white;
+}
+
+.more-btn {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: white;
+    padding: 0px;
+}
+
+.more-menu {
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    background: rgb(0,0,0,0.15);
+    backdrop-filter: blur(8px);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 8px;
+    z-index: 999;
+}
+
+.more-menu button {
+    background: rgb(255,255,255,0.1);
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 99px;
+    padding: 8px 12px;
+    position: relative;
+    right: auto;
+    transform: none;
+}
+
+.more-menu.hidden {
+    display: none;
+}
+
+.search-btn {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    display: flex;
+    border: none;
+    cursor: pointer;
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.location-date-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.regular-txt {
+    font-weight: 400;
+}
+
+.weather-summery-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    min-height: 140px; /* Ensure space for animation movement */
+}
+
+.weather-summery-img {
+    width: 120px;
+    height: 120px;
+    max-width: 100%;
+    animation: bounce 1.2s ease-in-out infinite alternate;
+    -webkit-animation: bounce 1.2s ease-in-out infinite alternate; /* Vendor prefix */
+    will-change: transform;
+    outline: 2px solid rgba(255, 255, 255, 0.3); /* Debug outline to confirm animation */
+}
+
+.weather-condition-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.condition-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.condition-item img {
+    font-size: 30px;
+}
+
+.forecast-item-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: scroll;
+    padding-bottom: 12px;
+}
+
+.forecast-item-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.forecast-item-container::-webkit-scrollbar-track {
+    background: rgb(0,0,0,0.1);
+    border-radius: 99px;
+}
+
+.forecast-item-container::-webkit-scrollbar-thumb {
+    background: rgb(0,0,0,0.15);
+    border-radius: 99px;
+}
+
+.forecast-item {
+    min-width: 70px;
+    background: rgb(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+    align-items: center;
+    border-radius: 12px;
+    transition: 0.3s background;
+}
+
+.forecast-item:hover {
+    background: rgb(255,255,255,0.15);
+}
+
+.forecast-item-img {
+    width: 35px;
+    height: 35px;
+}
+
+.section-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    margin-top: 25%;
+}
+
+.section-message img {
+    height: 180px;
+    width: fit-content;
+}
+
+/* Dark Mode */
+body.dark {
+    background: #1a1a1a;
+}
+
+body.dark * {
+    color: white;
+}
+
+body.dark .main-container {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1));
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .main-container {
+        width: 95%;
+        height: auto;
+    }
+
+    .forecast-item {
+        min-width: 60px;
+    }
+
+    .weather-summery-container {
+        min-height: 120px; /* Adjust for smaller icon */
+    }
+
+    .weather-summery-img {
+        width: 100px;
+        height: 100px;
+        max-width: 100%;
+        animation: bounce 1.2s ease-in-out infinite alternate;
+        -webkit-animation: bounce 1.2s ease-in-out infinite alternate;
+        will-change: transform;
+        outline: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .section-message img {
+        height: 120px;
+    }
+
+    .input-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* Buttons */
+.mic-btn,
+.location-btn,
+.dark-toggle {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.unit-toggle {
+    margin-top: 10px;
+}
+
+.unit-btn {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 4px 10px;
+    margin: 0 3px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.unit-btn.active {
+    background: white;
+    color: black;
+}
+
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    background: rgba(0,0,0,0.5);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    z-index: 9999;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-40px); }
+}
+
+@-webkit-keyframes bounce {
+    0% { -webkit-transform: translateY(0); }
+    100% { -webkit-transform: translateY(-40px); }
+}
